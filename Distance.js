@@ -1,39 +1,42 @@
 //Internal helper function for feet to meters not exported
-const feetToMeters = (x, y = 0.3048) => x * y;
+feetToMeters = (x, y = 0.3048) => x * y;
 
 //Internal helper function for meters to feet not exported
-const metersToFeet = (x, y = 3.28084) => x * y;
+metersToFeet = (x, y = 3.28084) => x * y;
 
 //Internal helper function for miles to kilometers not exported
-const milesToKM = (x, y = 1.60934) => x * y;
+milesToKM = (x, y = 1.60934) => x * y;
 
 //Internal helper function for kilometers to miles not exported
-const kmToMiles = (x, y = 0.621371) => x * y;
+kmToMiles = (x, y = 0.621371) => x * y;
 
 //export calculate function for the output/conversion
 exports.calculate = function (method, x) {
 
+    console.log(method);
+    console.log(x);
     //declaring variable for the result, easier to display
     let result;
 
     //take in distance if statement
     if (method == 'feet') {
         result = feetToMeters(x);
-        return `${x} ${method} is equal to ${result} meters!`;
+        return result;
     }
     else if (method == 'meters') {
         result = metersToFeet(x);
-        return `${x} ${method} is equal to ${result} feet!`;
+        return result;
     }
     else if (method == 'miles') {
         result = milesToKM(x);
-        return `${x} ${method} is equal to ${result} km!`;
+        return result;
     }
-    else if (method == 'km') {
+    else if (method == 'kilometers') {
         result = kmToMiles(x);
-        return `${x} ${method} is equal to ${result} miles!`;
+        return result;
     }
     else {
         return 'Error. Please enter a valid distance measurement.';
     }
 }
+
